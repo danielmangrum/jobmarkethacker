@@ -1,0 +1,64 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1.00in]{geometry}
+\usepackage{setspace}
+\usepackage{placeins}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{datatool}
+\usepackage{ifthen}
+\usepackage{pxfonts}
+\usepackage{blindtext} % Only used to fill space
+
+ 
+
+\fancypagestyle{style1}{
+\fancyhf{}
+\rhead{Diversity Statement\\ November 2019}
+\lhead{Daniel Mangrum\\ Vanderbilt University}
+%\rfoot{Page \thepage}
+}
+
+\fancypagestyle{style2}{
+\fancyhf{}
+\rhead{Diversity Statement\\ page \thepage}
+\lhead{Daniel Mangrum\\ Vanderbilt University}
+%\rfoot{Page \thepage}
+}
+
+
+\begin{document}
+
+
+\DTLloaddb{sample}{Jobs_export.csv}
+\DTLforeach{sample}{%
+\Complete=Complete,%
+\DiversityStatement=DiversityStatement,%
+\Submitted=Submitted,%
+\DiversityBonus=DiversityBonus%
+}{
+	\ifthenelse{\equal{\DiversityStatement}{} \OR \equal{\Submitted}{Yes}}{}{
+		\ifthenelse{\equal{\Complete}{Yes}}{
+			\setcounter{page}{1}
+			\pagestyle{style1}
+
+			% I only had one version of my diversity and inclusion statement and used the DiversityBonus wildcard in the Job_details csv to customize it when needed. You can create multiple statements using a similar template as the teaching statement if you'd like.
+	 		\ifthenelse{\equal{\DiversityStatement}{standard}}{
+
+			\Blindtext[6]% Only used to fill space
+
+
+			\bigskip
+			\DiversityBonus
+
+
+			\clearpage
+			}{}
+		}{}
+	}
+}
+
+\end{document}
+

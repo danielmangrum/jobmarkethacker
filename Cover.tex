@@ -1,0 +1,170 @@
+\documentclass{letter}
+%\usepackage{filecontents}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\usepackage{datatool}
+\usepackage{pxfonts}
+
+
+\newgeometry{left=1in, right=1in, top=0.4in, bottom=0in}
+\address{\hfill E-mail: daniel.mangrum@vanderbilt.edu \\ \hfill Web: www.danielmangrum.com \\   \hfill Phone: 901-215-8776}
+
+
+
+
+\makeatletter
+\renewcommand*{\opening}[1]{\ifx\@empty\fromaddress
+  \thispagestyle{firstpage}%
+    {\raggedleft\@date\par}%
+  \else  % home address
+    \thispagestyle{empty}%
+    {\raggedleft\begin{tabular}{l@{}}\ignorespaces
+      \fromaddress \\*[2\parskip]%
+      \end{tabular}\par
+     \raggedright\@date\par}%
+  \fi
+  \vspace{2\parskip}%
+  {\raggedright \toname \\ \toaddress \par}%
+  \vspace{2\parskip}%
+  #1\par\nobreak}
+\makeatother
+
+\begin{document}
+
+
+
+\DTLloaddb{sample}{Jobs_export.csv}
+\DTLforeach{sample}{%
+% Import wild cards from the Jobs spreadsheet to be inputted into the loop
+\Complete=Complete,%
+\Name=Name,%
+\Address=Address,%
+\City=City,%
+\State=State,%
+\Zip=Zip,%
+\TeachingCode=TeachingCode,%
+\Contents=Contents,%
+\Letters=Letters,%
+\Position=Position,%
+\Posted=Posted,%
+\CoverBonusGeneral=CoverBonusGeneral,%
+\CoverBonusResearch=CoverBonusResearch,%
+\CoverBonusTeaching=CoverBonusTeaching,%
+\Interview=Interview,%
+\Submitted=Submitted,%
+\LettersFormat=LettersFormat,%
+\Addressee=Addressee%
+}{%
+\ifthenelse{\equal{\Submitted}{Yes}}{% If already submitted, do not compile
+}{%
+\ifthenelse{\equal{\Complete}{Yes}}{% If complete but not submitted, continue to compile
+
+
+\begin{letter}{\Name \\ \Address \\ \City \State~\Zip} 
+\opening{\Addressee,}
+
+\vspace{-.1cm}
+
+% This is a common header that will be included in each cover letter with the appropriate wild cards
+
+I am writing to apply for the \Position\hspace{3pt}position advertised on \Posted. I am currently a Ph.D. candidate in economics at Vanderbilt University, and I expect to receive my degree in May 2020. I am broadly interested in policy relevant topics in applied microeconomics. My primary research interests are at the intersection of labor economics and the economics of education with secondary interests in health and urban economics. 
+
+In my job market paper, \emph{Personal Finance Education Mandates and Student Loan Repayment}, I investigate whether state mandated personal finance education during high school improves federal student loan repayment after college. I find that these mandates improve repayment and that the effect is largest for low-income and first generation students at public universities. This paper received the award of \emph{Best Graduate Student Paper} at the Missouri Valley Economic Association Annual Meeting, was instrumental in my receipt of a dissertation grant from the Washington Center for Equitable Growth, and has been featured in the \emph{Policy Genius} magazine. 
+
+% Here, we begin custom sections. Each if/then will allow for a custom section depending on the type of job.
+
+% The first custom job is for academic economics position (econ_academic)
+
+\ifthenelse{\equal{\TeachingCode}{econ_academic}}{%
+In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance. \CoverBonusResearch  
+
+During my graduate career at Vanderbilt University and the University of Memphis, I have served as a teaching assistant, tutor, and supplemental instructor. These experiences have prepared me to teach courses on a range of topics in economics, policy evaluation, causal inference, and applied econometrics. My commitment to teaching has resulted in a portfolio of outstanding evaluations from students and professors alike, and I was recently awarded the \emph{Rendigs Fels Award for Excellence in Teaching}.%
+
+\CoverBonusGeneral As part of my application, I am including my \Contents.~\LettersFormat~\Letters
+}{}
+
+% The second custom job is for academic policy jobs (policy_academic)
+
+\ifthenelse{\equal{\TeachingCode}{policy_academic}}{%
+In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance. \CoverBonusResearch  
+
+During my graduate career at Vanderbilt University and the University of Memphis, I have served as a teaching assistant, tutor, and supplemental instructor. These experiences have prepared me to teach courses on a range of topics in economics, public finance, policy evaluation, causal inference, and applied econometrics. My commitment to teaching has resulted in a portfolio of outstanding evaluations from students and professors alike, and I was recently awarded the \emph{Rendigs Fels Award for Excellence in Teaching}.%
+
+\CoverBonusGeneral As part of my application, I am including my \Contents.~\LettersFormat~\Letters
+}{}
+
+% Next, we will make a custom letter for post-docs (postdoc)
+
+\ifthenelse{\equal{\TeachingCode}{postdoc}}{%
+In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance.  
+
+I have several current works in progress in the fields of labor, education, health, and urban economics. In these papers, I study how college students react to federal financial aid austerity, how merit aid scholarships affect college and labor market outcomes for low-income students, and how the rise of e-commerce delivery has contributed to increased congestion in the United States.
+
+\CoverBonusGeneral As part of my application, I am including my \Contents.~\LettersFormat~\Letters
+}{}
+
+% Next, we have a section for jobs that require more focus on teaching (teaching_focus)
+
+\ifthenelse{\equal{\TeachingCode}{teaching_focus}}{%
+During my graduate career at Vanderbilt University and the University of Memphis, I have served as a teaching assistant, tutor, and supplemental instructor. These experiences have prepared me to teach in both introductory and advanced economics courses. I have course preparations for Introduction to Microeconomics, Intermediate Microeconomics, Labor Economics, Economics of Risk, Sports Economics, and Applied Econometrics. I can also prepare courses in Urban Economics, Public Economics, and the Economics of Social Issues. My commitment to teaching has resulted in a portfolio of outstanding evaluations from students and professors alike, and I was recently awarded the \emph{Rendigs Fels Award for Excellence in Teaching}.%
+
+\CoverBonusGeneral
+
+As part of my application, I am including my \Contents.~\LettersFormat~\Letters
+}{}
+
+% Next, government jobs
+
+\ifthenelse{\equal{\TeachingCode}{government}}{%
+In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance.  
+
+During my graduate career at Vanderbilt University and the University of Memphis, I have gained a wealth of technical skills and research experience. Of these skills, I am particularly experienced in data analysis, program evaluation, applied econometrics, and data visualization. I am proficient in Stata, Python, R, and Matlab and I am competent in QGIS/ArcGIS and SQL. I am also particularly effective at communicating technical and complex data products and analysis in both written and oral settings. 
+
+\CoverBonusGeneral 
+
+As part of my application, I am including my \Contents.~\LettersFormat~\Letters
+}{}
+
+
+% Private sector positions
+
+\ifthenelse{\equal{\TeachingCode}{private_sector}}{%
+During my graduate career at Vanderbilt University and the University of Memphis, I have gained a wealth of technical skills and research experience. Of these skills, I am particularly experienced in data analysis, program evaluation, applied econometrics, and data visualization. I am proficient in Stata, Python, R, and Matlab and I am competent in QGIS/ArcGIS and SQL. I am also particularly effective at communicating technical and complex data products and analysis in both written and oral settings. 
+
+\CoverBonusGeneral 
+
+As part of my application, I am including my \Contents.~\LettersFormat~\Letters
+}{}
+
+% Lastly, I used this for random jobs that did not require letters. Any customization happens with the CoverBonusGeneral wildcard
+
+
+\ifthenelse{\equal{\TeachingCode}{no_letters}}{%
+During my graduate career at Vanderbilt University and the University of Memphis, I have gained a wealth of technical skills and research experience. Of these skills, I am particularly experienced in data analysis, program evaluation, applied econometrics, and data visualization. I am proficient in Stata, Python, R, and Matlab and I am competent in QGIS/ArcGIS and SQL. I am also particularly effective at communicating technical and complex data products and analysis in both written and oral settings. 
+
+\CoverBonusGeneral 
+}{}
+
+%I will be available for interview \Interview. 
+I will gladly provide more details about my background and experience upon request. Thank you in advance for your consideration.
+
+\vspace{.5cm} 
+Sincerely,
+
+\vspace{.25cm} 
+Daniel Mangrum \\
+Ph.D. Candidate\\
+Department of Economics \\
+Vanderbilt University
+
+\end{letter}}{}
+
+}
+}
+
+\end{document}
+
+
+
+
+

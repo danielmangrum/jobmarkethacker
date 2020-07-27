@@ -1,0 +1,122 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1.00in]{geometry}
+\usepackage{setspace}
+\usepackage{placeins}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{datatool}
+\usepackage{ifthen}
+\usepackage{pxfonts}
+\usepackage{blindtext} % Only used to fill space
+
+
+
+
+\fancypagestyle{style1}{
+\fancyhf{}
+\rhead{Teaching Philosophy\\ December 2019}
+\lhead{Daniel Mangrum\\ Vanderbilt University}
+%\rfoot{Page \thepage}
+}
+
+\fancypagestyle{style2}{
+\fancyhf{}
+\rhead{Teaching Philosophy\\ page \thepage}
+\lhead{Daniel Mangrum\\ Vanderbilt University}
+%\rfoot{Page \thepage}
+}
+
+
+\begin{document}
+
+
+\DTLloaddb{sample}{Jobs_export.csv}
+\DTLforeach{sample}{%
+\Complete=Complete,%
+\TeachingStatement=TeachingStatement,%
+\Submitted=Submitted,%
+\TeachingBonus=TeachingBonus%
+}{
+	\ifthenelse{\equal{\TeachingStatement}{} \OR \equal{\Submitted}{Yes}}{}{
+		\ifthenelse{\equal{\Complete}{Yes}}{
+			\setcounter{page}{1} % Resets the page counter back to 1 at the beginning of each new sub-document
+			\pagestyle{style1}
+			\setcounter{table}{0} 
+			
+		 	
+			\Blindtext[8]% Only used to fill space
+
+
+			% If there is nothing in the TeachingBonus column of the Job_details csv, skip it. Otherwise, include the TeachingBonus along with correct indentation formatting and a skip
+			\ifthenelse{\equal{\TeachingBonus}{}}{}{\TeachingBonus \bigskip}
+			
+
+			\pagestyle{style2}
+			
+
+			% I created multiple teaching documents depending on whether the job asked for a full account of course evals or a summary. If you only have one teaching statement that is the same across all jobs, use the research statement template tex file.
+
+			% If full accounting:
+			\ifthenelse{\equal{\TeachingStatement}{full}}{
+
+			In the tables below, you will find a summary of my quantitative course evaluations along with all qualitative responses for the courses I served as a teaching assistant at Vanderbilt. Additional supplemental materials including example syllabi and example slides are available at:  \\
+			\url{https://www.danielmangrum.com/SupplementalTeachingMaterials.html}
+
+
+
+			\subsubsection*{Summary of Quantitative Evaluations for Courses as Teaching Assistant}
+			At the conclusion of each semester, students are encouraged to submit evaluations for their enrolled courses. Each student can rate instructors and teaching assistants on a scale of 1 to 5 (with 5 being the highest) for the following questions:
+			\begin{itemize}
+					\item ``Overall, how effective was the instruction you received from this teaching assistant?'' (for Fall 2016 and beyond)
+					\item ``How helpful and responsive was the teaching assistant?''
+					\item ``How knowledgeable was the teaching assistant about the subject matter of this class?''
+			\end{itemize}
+			The table below summarizes student responses to these questions for the courses I served as a teaching assistant. Average scores on a scale of 1 to 5 are presented for each course along with the departmental average in parenthesis. The Effective question was not asked and departmental averages are not available prior to the Fall of 2016.\\
+
+			[Table here]
+
+			\subsubsection*{Qualitative Responses for Courses as Teaching Assistant}
+			In addition to the quantitative responses, students are given an opportunity to provide open-ended qualitative responses. For Fall of 2016 and beyond, students were asked:
+			\begin{itemize}
+					\item ``What aspects of this teaching assistant's teaching were most helpful to you?''
+					\item ``How can this teaching assistant's teaching be improved?''
+			\end{itemize}
+			For courses prior to the Fall of 2016, students were asked for ``general comments about the teaching assistant.'' The responses to these questions are presented in full below. Responses containing the following were deleted: N/A, n/a, NA, na, none, nothing, not applicable. Professor names have also been removed.\\
+
+			[Table here]
+
+
+			% If the job only requested a summary, I used only my quantitative eval table
+			}{
+				\ifthenelse{\equal{\TeachingStatement}{short_with_quant}}{
+				
+				
+				The table below summarizes student responses to quantitative evaluations for the courses I served as a teaching assistant at Vanderbilt. Additional supplemental materials including full qualitative responses to course evaluations, example syllabi, and example slides are available at:  \\
+				\url{https://www.danielmangrum.com/SupplementalTeachingMaterials.html}
+
+	
+				\vspace{15pt}
+				[Table here]
+
+				}{
+
+				}
+				% If the job didn't ask for evaluations, I just left a link to more teaching materials.
+				\ifthenelse{\equal{\TeachingStatement}{no_evals}}{
+
+				As further evidence of my teaching effectiveness, I have provided my qualitative and quantitative course evaluations, example syllabi, and example slides on my website at: \\
+				{\centering \url{https://www.danielmangrum.com/SupplementalTeachingMaterials.html}}
+				
+				}
+			}
+			\clearpage
+		}{}
+	}
+}
+
+\end{document}
+
+

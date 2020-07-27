@@ -1,0 +1,82 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1.00in]{geometry}
+\usepackage{setspace}
+\usepackage{placeins}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{datatool}
+\usepackage{ifthen}
+\usepackage{pxfonts}
+\usepackage{blindtext} % Only used to fill space
+
+
+\fancypagestyle{style1}{
+\fancyhf{}
+\rhead{Research Statement\\ January 2020}
+\lhead{Daniel Mangrum\\ Vanderbilt University}
+%\rfoot{Page \thepage}
+}
+
+\fancypagestyle{style2}{
+\fancyhf{}
+\rhead{Research Statement\\ page \thepage}
+\lhead{Daniel Mangrum\\ Vanderbilt University}
+%\rfoot{Page \thepage}
+}
+
+
+
+\begin{document}
+
+
+\DTLloaddb{sample}{Jobs_export.csv}
+\DTLforeach{sample}{%
+\Complete=Complete,%
+\ResearchStatement=ResearchStatement,%
+\Submitted=Submitted,%
+\ResearchBonus=ResearchBonus%
+}{%
+	\ifthenelse{\equal{\ResearchStatement}{} \OR \equal{\Submitted}{Yes}}{}{
+		\ifthenelse{\equal{\Complete}{Yes}}{
+			\setcounter{page}{1} % Resets the page counter back to 1 at the beginning of each new sub-document
+			
+			\pagestyle{style1}
+
+
+			% I only used one Research Statement. If you have others, you can use the if/then statements as I did in the teaching statements
+	 		\ifthenelse{\equal{\ResearchStatement}{econ_general}}{
+
+				
+
+				\Blindtext[1]% Only used to fill space
+				\bigskip
+
+				\noindent\textbf{Research Papers}\\
+				\Blindtext[6]% Only used to fill space
+				\bigskip
+
+				\noindent\textbf{Works in Progress}\\
+				\Blindtext[3]% Only used to fill space
+				\bigskip
+				
+
+				
+				\pagestyle{style2} % Switches from first page style to remaining page style (I had date in the first page and page numbers in remaining)
+
+				\noindent\textbf{Future Work}\\
+				\Blindtext[2]% Only used to fill space
+
+				\noindent \ResearchBonus
+
+			\clearpage
+			}{}
+		}{}
+	}
+}
+
+\end{document}
+
+
