@@ -36,11 +36,11 @@
 \DTLloaddb{sample}{Jobs_export.csv}
 \DTLforeach{sample}{%
 \Complete=Complete,%
-\TeachingStatement=TeachingStatement,%
+\TeachingStatementCat=TeachingStatementCat,%
 \Submitted=Submitted,%
 \TeachingBonus=TeachingBonus%
 }{
-	\ifthenelse{\equal{\TeachingStatement}{} \OR \equal{\Submitted}{Yes}}{}{
+	\ifthenelse{\equal{\TeachingStatementCat}{} \OR \equal{\Submitted}{Yes}}{}{
 		\ifthenelse{\equal{\Complete}{Yes}}{
 			\setcounter{page}{1} % Resets the page counter back to 1 at the beginning of each new sub-document
 			\pagestyle{style1}
@@ -60,7 +60,7 @@
 			% I created multiple teaching documents depending on whether the job asked for a full account of course evals or a summary. If you only have one teaching statement that is the same across all jobs, use the research statement template tex file.
 
 			% If full accounting:
-			\ifthenelse{\equal{\TeachingStatement}{full}}{
+			\ifthenelse{\equal{\TeachingStatementCat}{full}}{
 
 			In the tables below, you will find a summary of my quantitative course evaluations along with all qualitative responses for the courses I served as a teaching assistant at Vanderbilt. Additional supplemental materials including example syllabi and example slides are available at:  \\
 			\url{https://www.danielmangrum.com/SupplementalTeachingMaterials.html}
@@ -91,7 +91,7 @@
 
 			% If the job only requested a summary, I used only my quantitative eval table
 			}{
-				\ifthenelse{\equal{\TeachingStatement}{short_with_quant}}{
+				\ifthenelse{\equal{\TeachingStatementCat}{short_with_quant}}{
 				
 				
 				The table below summarizes student responses to quantitative evaluations for the courses I served as a teaching assistant at Vanderbilt. Additional supplemental materials including full qualitative responses to course evaluations, example syllabi, and example slides are available at:  \\
@@ -105,7 +105,7 @@
 
 				}
 				% If the job didn't ask for evaluations, I just left a link to more teaching materials.
-				\ifthenelse{\equal{\TeachingStatement}{no_evals}}{
+				\ifthenelse{\equal{\TeachingStatementCat}{no_evals}}{
 
 				As further evidence of my teaching effectiveness, I have provided my qualitative and quantitative course evaluations, example syllabi, and example slides on my website at: \\
 				{\centering \url{https://www.danielmangrum.com/SupplementalTeachingMaterials.html}}

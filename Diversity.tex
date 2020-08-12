@@ -35,17 +35,17 @@
 \DTLloaddb{sample}{Jobs_export.csv}
 \DTLforeach{sample}{%
 \Complete=Complete,%
-\DiversityStatement=DiversityStatement,%
+\DiversityStatementCat=DiversityStatementCat,%
 \Submitted=Submitted,%
 \DiversityBonus=DiversityBonus%
 }{
-	\ifthenelse{\equal{\DiversityStatement}{} \OR \equal{\Submitted}{Yes}}{}{
+	\ifthenelse{\equal{\DiversityStatementCat}{} \OR \equal{\Submitted}{Yes}}{}{
 		\ifthenelse{\equal{\Complete}{Yes}}{
 			\setcounter{page}{1}
 			\pagestyle{style1}
 
 			% I only had one version of my diversity and inclusion statement and used the DiversityBonus wildcard in the Job_details csv to customize it when needed. You can create multiple statements using a similar template as the teaching statement if you'd like.
-	 		\ifthenelse{\equal{\DiversityStatement}{standard}}{
+	 		\ifthenelse{\equal{\DiversityStatementCat}{standard}}{
 
 			\Blindtext[6]% Only used to fill space
 

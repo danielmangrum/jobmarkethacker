@@ -9,7 +9,7 @@ import shutil
 
 
 # Set the root directory for the Job Market Hacker python file and tex files
-root_dir = 'C:/Users/Daniel/Dropbox/JobMarketHacker/'
+root_dir = 'C:/Users/Daniel/Dropbox/GitHub/jobmarkethacker/'
 
 #Set the name you want as a prefix to your documents in the application folders
 last_name = 'Mangrum'
@@ -248,7 +248,7 @@ for page in range(0,jobs_n):
     # Job_details csv
     
     # Teaching Statement
-    if ~Job_details.TeachingStatement.isna()[page]:   
+    if ~Job_details.TeachingStatementCat.isna()[page]:   
         try:
             # Load the page number for the end of subdocument
             TS_end = TS_page_end[TS_count]
@@ -271,7 +271,7 @@ for page in range(0,jobs_n):
         TS_count = TS_count + 1
 
     # Research Statement
-    if ~Job_details.ResearchStatement.isna()[page]:
+    if ~Job_details.ResearchStatementCat.isna()[page]:
         try:
             # Load the page number for the end of subdocument
             RS_end = RS_page_end[RS_count]
@@ -294,7 +294,7 @@ for page in range(0,jobs_n):
         RS_count = RS_count + 1
 
     # Diversity Statement
-    if ~Job_details.DiversityStatement.isna()[page]:
+    if ~Job_details.DiversityStatementCat.isna()[page]:
         try:
             # Load the page number for the end of subdocument            
             DS_end = DS_page_end[DS_count]
@@ -359,6 +359,14 @@ for page in range(0,jobs_n):
 
 # Remove batch pdf files
 fileList = glob.glob('{}/*.pdf'.format(root_dir))
+for item in fileList:
+    try:
+        os.remove(item)
+    except:
+        pass
+        
+# Remove batch aux files
+fileList = glob.glob('{}/*.aux'.format(root_dir))
 for item in fileList:
     try:
         os.remove(item)

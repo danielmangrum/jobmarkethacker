@@ -42,7 +42,7 @@
 \City=City,%
 \State=State,%
 \Zip=Zip,%
-\TeachingCode=TeachingCode,%
+\CoverLetterCat=CoverLetterCat,%
 \Contents=Contents,%
 \Letters=Letters,%
 \Position=Position,%
@@ -75,7 +75,7 @@ In my job market paper, \emph{Personal Finance Education Mandates and Student Lo
 
 % The first custom job is for academic economics position (econ_academic)
 
-\ifthenelse{\equal{\TeachingCode}{econ_academic}}{%
+\ifthenelse{\equal{\CoverLetterCat}{econ_academic}}{%
 In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance. \CoverBonusResearch  
 
 During my graduate career at Vanderbilt University and the University of Memphis, I have served as a teaching assistant, tutor, and supplemental instructor. These experiences have prepared me to teach courses on a range of topics in economics, policy evaluation, causal inference, and applied econometrics. My commitment to teaching has resulted in a portfolio of outstanding evaluations from students and professors alike, and I was recently awarded the \emph{Rendigs Fels Award for Excellence in Teaching}.%
@@ -85,7 +85,7 @@ During my graduate career at Vanderbilt University and the University of Memphis
 
 % The second custom job is for academic policy jobs (policy_academic)
 
-\ifthenelse{\equal{\TeachingCode}{policy_academic}}{%
+\ifthenelse{\equal{\CoverLetterCat}{policy_academic}}{%
 In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance. \CoverBonusResearch  
 
 During my graduate career at Vanderbilt University and the University of Memphis, I have served as a teaching assistant, tutor, and supplemental instructor. These experiences have prepared me to teach courses on a range of topics in economics, public finance, policy evaluation, causal inference, and applied econometrics. My commitment to teaching has resulted in a portfolio of outstanding evaluations from students and professors alike, and I was recently awarded the \emph{Rendigs Fels Award for Excellence in Teaching}.%
@@ -95,7 +95,7 @@ During my graduate career at Vanderbilt University and the University of Memphis
 
 % Next, we will make a custom letter for post-docs (postdoc)
 
-\ifthenelse{\equal{\TeachingCode}{postdoc}}{%
+\ifthenelse{\equal{\CoverLetterCat}{postdoc}}{%
 In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance.  
 
 I have several current works in progress in the fields of labor, education, health, and urban economics. In these papers, I study how college students react to federal financial aid austerity, how merit aid scholarships affect college and labor market outcomes for low-income students, and how the rise of e-commerce delivery has contributed to increased congestion in the United States.
@@ -105,7 +105,7 @@ I have several current works in progress in the fields of labor, education, heal
 
 % Next, we have a section for jobs that require more focus on teaching (teaching_focus)
 
-\ifthenelse{\equal{\TeachingCode}{teaching_focus}}{%
+\ifthenelse{\equal{\CoverLetterCat}{teaching_focus}}{%
 During my graduate career at Vanderbilt University and the University of Memphis, I have served as a teaching assistant, tutor, and supplemental instructor. These experiences have prepared me to teach in both introductory and advanced economics courses. I have course preparations for Introduction to Microeconomics, Intermediate Microeconomics, Labor Economics, Economics of Risk, Sports Economics, and Applied Econometrics. I can also prepare courses in Urban Economics, Public Economics, and the Economics of Social Issues. My commitment to teaching has resulted in a portfolio of outstanding evaluations from students and professors alike, and I was recently awarded the \emph{Rendigs Fels Award for Excellence in Teaching}.%
 
 \CoverBonusGeneral
@@ -115,7 +115,7 @@ As part of my application, I am including my \Contents.~\LettersFormat~\Letters
 
 % Next, government jobs
 
-\ifthenelse{\equal{\TeachingCode}{government}}{%
+\ifthenelse{\equal{\CoverLetterCat}{government}}{%
 In addition to my research in education and labor economics, I also study topics in urban and health economics. In my co-authored paper, \emph{The Marginal Congestion of a Taxi in New York City}, we study how the introduction of a new geographically restricted taxi fleet in New York City affected localized congestion. This paper was presented at the 2018 NBER Summer Institute and is currently being revised for resubmission at the \emph{American Economic Review}. I also have a working paper that estimates the impact of a weekend supplemental nutrition intervention in the Mississippi Delta region on childhood test scores and attendance.  
 
 During my graduate career at Vanderbilt University and the University of Memphis, I have gained a wealth of technical skills and research experience. Of these skills, I am particularly experienced in data analysis, program evaluation, applied econometrics, and data visualization. I am proficient in Stata, Python, R, and Matlab and I am competent in QGIS/ArcGIS and SQL. I am also particularly effective at communicating technical and complex data products and analysis in both written and oral settings. 
@@ -128,7 +128,7 @@ As part of my application, I am including my \Contents.~\LettersFormat~\Letters
 
 % Private sector positions
 
-\ifthenelse{\equal{\TeachingCode}{private_sector}}{%
+\ifthenelse{\equal{\CoverLetterCat}{private_sector}}{%
 During my graduate career at Vanderbilt University and the University of Memphis, I have gained a wealth of technical skills and research experience. Of these skills, I am particularly experienced in data analysis, program evaluation, applied econometrics, and data visualization. I am proficient in Stata, Python, R, and Matlab and I am competent in QGIS/ArcGIS and SQL. I am also particularly effective at communicating technical and complex data products and analysis in both written and oral settings. 
 
 \CoverBonusGeneral 
@@ -139,7 +139,7 @@ As part of my application, I am including my \Contents.~\LettersFormat~\Letters
 % Lastly, I used this for random jobs that did not require letters. Any customization happens with the CoverBonusGeneral wildcard
 
 
-\ifthenelse{\equal{\TeachingCode}{no_letters}}{%
+\ifthenelse{\equal{\CoverLetterCat}{no_letters}}{%
 During my graduate career at Vanderbilt University and the University of Memphis, I have gained a wealth of technical skills and research experience. Of these skills, I am particularly experienced in data analysis, program evaluation, applied econometrics, and data visualization. I am proficient in Stata, Python, R, and Matlab and I am competent in QGIS/ArcGIS and SQL. I am also particularly effective at communicating technical and complex data products and analysis in both written and oral settings. 
 
 \CoverBonusGeneral 

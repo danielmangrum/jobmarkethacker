@@ -35,11 +35,11 @@
 \DTLloaddb{sample}{Jobs_export.csv}
 \DTLforeach{sample}{%
 \Complete=Complete,%
-\ResearchStatement=ResearchStatement,%
+\ResearchStatementCat=ResearchStatementCat,%
 \Submitted=Submitted,%
 \ResearchBonus=ResearchBonus%
 }{%
-	\ifthenelse{\equal{\ResearchStatement}{} \OR \equal{\Submitted}{Yes}}{}{
+	\ifthenelse{\equal{\ResearchStatementCat}{} \OR \equal{\Submitted}{Yes}}{}{
 		\ifthenelse{\equal{\Complete}{Yes}}{
 			\setcounter{page}{1} % Resets the page counter back to 1 at the beginning of each new sub-document
 			
@@ -47,7 +47,7 @@
 
 
 			% I only used one Research Statement. If you have others, you can use the if/then statements as I did in the teaching statements
-	 		\ifthenelse{\equal{\ResearchStatement}{econ_general}}{
+	 		\ifthenelse{\equal{\ResearchStatementCat}{econ_general}}{
 
 				
 
