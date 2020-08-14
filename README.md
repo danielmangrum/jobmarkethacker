@@ -56,9 +56,9 @@ In order to use this code, you will need to install some dependencies.
 Getting Started
 
 
-1.) To begin, open the tex documents to familiarize yourself with the structure. The tex file will read information from your job information and loop over all of the jobs you wish to compile to create a unique PDF file for each application. For example, in the Cover.tex there are various wild card variables that will be placed into the corresponding section of the cover letter. Additionally, you can create alternate versions of a section of a statement/letter (e.g. econ_academic, government, postdoc, etc). Also notice there are 'Bonus' wild cards that you can inject a unique sentence or paragraph into the statement/letter. Note that these tex files will not compile until you have run the python code detailed below.
+1.) To begin, open and explore the tex documents to familiarize yourself with the structure. The tex file will read information from your job spreadsheet and loop over all of the jobs you wish to compile to create a unique PDF file for each application. For example, in the Cover.tex there are various wild card variables that will be placed into the corresponding section of the cover letter. Additionally, you can create alternate versions of a section of a statement/letter (e.g. econ_academic, government, postdoc, etc). Also notice there are 'Bonus' wild cards that you can inject a unique sentence or paragraph into the statement/letter. 
 
-2.) Open the Jobs Spreadsheet and begin to add new rows with new jobs. It is recommended you keep the sample jobs in the spreadsheet so that the python file always has a job to work on. The Excel file is pre-populated with 29 columns that are used as inputs in the various tex files:
+2.) Open the Jobs Spreadsheet and explore the columns. These columns correspond to the wild cards in the tex files. You can begin to add new rows with new jobs but it is best to compile with only the sample jobs so that you know the code works. It is also recommended you keep the sample jobs in the spreadsheet so that the python file always has a job to work on. The Excel file is pre-populated with 29 columns that are used as inputs in the various tex files:
 
 Name : The name of the department and university for the cover letter (Use \\ for line breaks)
 
