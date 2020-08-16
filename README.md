@@ -9,12 +9,12 @@ This package is designed to make it easier to apply for jobs during the Economic
 
 The package contains six files (all of these files should remain in the root directory):
 
-JMHacker.py
-Jobs.xlsx
-Cover.tex
-Research.tex
-Teaching.tex
-Diversity.tex
+- JMHacker.py
+- Jobs.xlsx
+- Cover.tex
+- Research.tex
+- Teaching.tex
+- Diversity.tex
 
 Jobs.xlsx is an Excel spreadsheet where you will collect all of your job information.
 Cover.tex is an example cover letter tex file for your job applications.
@@ -30,27 +30,24 @@ In order to use this code, you will need to install some dependencies.
 
 1.) Python 
 	I use Python 3.6 but you may be able to use other versions successfully. The following packages should be installed through pip (e.g 'pip install PyPDF2' at the command line or within Anaconda or Jupyter)
-		-os
-		-glob
-		-pandas 
-		-numpy
-		-PyPDF2
-		-shutil
+   - `os`
+   - `glob`
+   - `pandas`
+   - `numpy`
+   - `PyPDF2`
+   - `shutil`
 
-2.) MikTeX (or other LaTeX compiler - see http://sachaepskamp.com/wp-content/uploads/2011/10/Install.pdf)
-	pdflatex should be accessible via your PATH
-	packages used are (some of these aren't required but are in the example files):
-		-geometry
-		-setspace
-		-placeins
-		-babel
-		-inputenc
-		-fancyhdr
-		-hyperref
-		-import
-		-datatool
-		-ifthen
-		-blindtext
+    - `geometry`
+    - `setspace`
+    - `placeins`
+    - `babel`
+    - `inputenc`
+    - `fancyhdr`
+    - `hyperref`
+    - `import`
+    - `datatool`
+    - `ifthen`
+    - `blindtext`
 
 3.) Microsoft Excel
 
