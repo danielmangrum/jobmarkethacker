@@ -1,5 +1,4 @@
-# jobmarkethacker
- A tool to create application packets for the academic economics job market
+# Job Market Hacker
 
 
 Daniel Mangrum
@@ -23,6 +22,9 @@ Research.tex is an example research statement tex file.
 Teaching.tex is an example teaching statement tex file.
 Diversity.tex is an example diversity statement tex file.
 JMHacker.py is the python file that will compile all tex files, read the information in the Jobs spreadsheet, and create the application folders.
+
+
+### Dependencies
 
 In order to use this code, you will need to install some dependencies.
 
@@ -53,7 +55,7 @@ In order to use this code, you will need to install some dependencies.
 3.) Microsoft Excel
 
 
-Getting Started
+### Getting Started
 
 
 1.) To begin, open and explore the tex documents to familiarize yourself with the structure. The tex file will read information from your job spreadsheet and loop over all of the jobs you wish to compile to create a unique PDF file for each application. For example, in the Cover.tex there are various wild card variables that will be placed into the corresponding section of the cover letter. Additionally, you can create alternate versions of a section of a statement/letter (e.g. econ_academic, government, postdoc, etc). Also notice there are 'Bonus' wild cards that you can inject a unique sentence or paragraph into the statement/letter. 
