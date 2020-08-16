@@ -1,9 +1,7 @@
 # Job Market Hacker
 
 
-Daniel Mangrum
-
-
+---
 
 This package is designed to make it easier to apply for jobs during the Economics Job Market. With this code, you can create multiple templates for your cover letters, research statements, teaching statements, and diversity statements and inject wild cards into each letter or statement to customize them to a specific job. This code will take the LaTeX files and create a separate application folder for each job application with the information you choose. 
 
