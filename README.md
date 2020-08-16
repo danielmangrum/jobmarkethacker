@@ -28,7 +28,7 @@ JMHacker.py is the python file that will compile all tex files, read the informa
 
 In order to use this code, you will need to install some dependencies.
 
-1.) Python 
+1. Python
 	I use Python 3.6 but you may be able to use other versions successfully. The following packages should be installed through pip (e.g 'pip install PyPDF2' at the command line or within Anaconda or Jupyter)
    - `os`
    - `glob`
@@ -37,6 +37,9 @@ In order to use this code, you will need to install some dependencies.
    - `PyPDF2`
    - `shutil`
 
+1. MikTeX (or other LaTeX compiler—see http://sachaepskamp.com/wp-content/uploads/2011/10/Install.pdf)
+   `pdflatex` should be accessible via your PATH.
+   Packages used are (some of these aren't required but are in the example files):
     - `geometry`
     - `setspace`
     - `placeins`
@@ -49,13 +52,14 @@ In order to use this code, you will need to install some dependencies.
     - `ifthen`
     - `blindtext`
 
-3.) Microsoft Excel
+1. Microsoft Excel
 
 
 ### Getting Started
 
+1. To begin, open and explore the tex documents to familiarize yourself with the structure. The tex file will read information from your job spreadsheet and loop over all of the jobs you wish to compile to create a unique PDF file for each application. For example, in the Cover.tex there are various wild card variables that will be placed into the corresponding section of the cover letter. Additionally, you can create alternate versions of a section of a statement/letter (e.g. econ_academic, government, postdoc, etc). Also notice there are 'Bonus' wild cards that you can inject a unique sentence or paragraph into the statement/letter.
 
-1.) To begin, open and explore the tex documents to familiarize yourself with the structure. The tex file will read information from your job spreadsheet and loop over all of the jobs you wish to compile to create a unique PDF file for each application. For example, in the Cover.tex there are various wild card variables that will be placed into the corresponding section of the cover letter. Additionally, you can create alternate versions of a section of a statement/letter (e.g. econ_academic, government, postdoc, etc). Also notice there are 'Bonus' wild cards that you can inject a unique sentence or paragraph into the statement/letter. 
+2. Open the Jobs Spreadsheet and explore the columns. These columns correspond to the wild cards in the tex files. You can begin to add new rows with new jobs but it is best to compile with only the sample jobs so that you know the code works. It is also recommended you keep the sample jobs in the spreadsheet so that the python file always has a job to work on. The Excel file is pre-populated with 29 columns that are used as inputs in the various tex files:
 
 2.) Open the Jobs Spreadsheet and explore the columns. These columns correspond to the wild cards in the tex files. You can begin to add new rows with new jobs but it is best to compile with only the sample jobs so that you know the code works. It is also recommended you keep the sample jobs in the spreadsheet so that the python file always has a job to work on. The Excel file is pre-populated with 29 columns that are used as inputs in the various tex files:
 
@@ -119,17 +123,14 @@ ThirdPaper : Filename for additional paper/transcript/etc to be added to applica
 
 You can add any new wild card to the program by adding a column to the jobs spreadsheet and then invoking the wild card in the appropriate tex file.
 
-
-3.) Customize the JMHacker.py file:
+3. Customize the JMHacker.py file:
 	Adjust the root directory to the location of the source files
 	Adjust the last name variable
 	Set the file location for the CV pdf
 	Set the file location for the job market paper pdf
 
-4.) Run the JMHacker.py file to generate the sample application folders and the Job_export.csv. You must have all application folders closed before running the py file. Otherwise you will get an error when trying to move/delete folders.
+4. Run the JMHacker.py file to generate the sample application folders and the Job_export.csv. You must have all application folders closed before running the py file. Otherwise you will get an error when trying to move/delete folders.
 
-
-
-5.) Run JMHacker.py as needed to generate new application files, move newly submitted applications to the Submitted folder, and update any documents. Note that if you change the name or deadline of an application, the old folder will remain and a new folder will be created. You will need to manually delete any folder that doesn't have a matching name/deadline combination in the spreadsheet.
+5. Run JMHacker.py as needed to generate new application files, move newly submitted applications to the Submitted folder, and update any documents. Note that if you change the name or deadline of an application, the old folder will remain and a new folder will be created. You will need to manually delete any folder that doesn't have a matching name/deadline combination in the spreadsheet.
 
 
