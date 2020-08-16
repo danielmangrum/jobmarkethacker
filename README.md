@@ -4,7 +4,7 @@ A tool to create application packets for the academic Economics Job Market.
 
 ---
 
-This package is designed to make it easier to apply for jobs during the Economics Job Market. With this code, you can create multiple templates for your cover letters, research statements, teaching statements, and diversity statements and inject wild cards into each letter or statement to customize them to a specific job. This code will take the LaTeX files and create a separate application folder for each job application with the information you choose. 
+This package is designed to make it easier to apply for jobs during the Economics Job Market. With this code, you can create multiple templates for your cover letters, research statements, teaching statements, and diversity statements and inject wild cards into each letter or statement to customize them to a specific job. This code will take the LaTeX files and create a separate application folder for each job application with the information you choose.
 
 The package contains six files (all of these files should remain in the root directory):
 
@@ -28,7 +28,7 @@ JMHacker.py is the python file that will compile all tex files, read the informa
 In order to use this code, you will need to install some dependencies.
 
 1. Python
-	I use Python 3.6 but you may be able to use other versions successfully. The following packages should be installed through pip (e.g 'pip install PyPDF2' at the command line or within Anaconda or Jupyter)
+   I use Python 3.6 but you may be able to use other versions successfully. The following packages should be installed through pip (e.g 'pip install PyPDF2' at the command line or within Anaconda or Jupyter)
    - `os`
    - `glob`
    - `pandas`
@@ -92,13 +92,13 @@ In order to use this code, you will need to install some dependencies.
    | SecondPaper | Filename for additional paper/transcript/etc to be added to application folder (store in {root}/Misc folder) |
    | ThirdPaper | Filename for additional paper/transcript/etc to be added to application folder (store in {root}/Misc folder) |
 
-You can add any new wild card to the program by adding a column to the jobs spreadsheet and then invoking the wild card in the appropriate tex file.
+   You can add any new wild card to the program by adding a column to the jobs spreadsheet and then invoking the wild card in the appropriate tex file.
 
 3. Customize the JMHacker.py file:
-	Adjust the root directory to the location of the source files
-	Adjust the last name variable
-	Set the file location for the CV pdf
-	Set the file location for the job market paper pdf
+   Adjust the root directory to the location of the source files
+   Adjust the last name variable
+   Set the file location for the CV pdf
+   Set the file location for the job market paper pdf
 
 4. Run the JMHacker.py file to generate the sample application folders and the Job_export.csv. You must have all application folders closed before running the py file. Otherwise you will get an error when trying to move/delete folders.
 
