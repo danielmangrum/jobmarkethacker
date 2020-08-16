@@ -1,5 +1,6 @@
 # Job Market Hacker
 
+A tool to create application packets for the academic Economics Job Market.
 
 ---
 
